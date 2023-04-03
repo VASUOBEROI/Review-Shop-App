@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=pageTitle%></title>
+</head>
+<body>
+       
+    <form action="/admin/reviews" method="post">
+
+        
+            <label for="productTitle"> Product Title:</label>
+            <input type="text" id="productTitle" name="productTitle"><br><br>
+            <label for="review">Review:</label>
+            <textarea id="productReview" name="productReview"></textarea>
+            <label for="url">Url:</label>
+            <input type="url" id="productUrl" name="productUrl">
+            <!-- <input type="text" id="lname" name="lname"><br><br> -->
+            <input type="submit" value="Add Review">
+          
+    </form>
+
+    <h1><%=pageHeading%></h1>
+</body>
+</html>
