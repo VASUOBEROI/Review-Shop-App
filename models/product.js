@@ -8,11 +8,13 @@ const storePath=path.join(rootDir,'data','products.json');
 
 
 module.exports=class Product{
-    constructor(productTitle,productReview,productUrl)
+    constructor(productTitle,productPrice,productRating,productReview)
     {
         this.productTitle=productTitle;
+        this.productPrice=productReview;
+        this.productRating=productRating;
         this.productReview=productReview;
-        this.productUrl=productUrl;
+        // this.price=price;
     }
     save()
     {
@@ -29,9 +31,18 @@ module.exports=class Product{
          })
     }
 
-    static fetchAll()
+    static fetchAll(cb)
     {
-
+        fs.readFile(storePath,(err,fileContent)=>{
+            let notes=[];
+            if(err)
+            {
+                 cb([]);
+            }
+            notes=JSON.parse(fileContent);
+            cb(notes);
+        })
+       
     }
 }
 

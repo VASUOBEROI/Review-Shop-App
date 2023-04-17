@@ -1,0 +1,76 @@
+
+
+.product-form{
+    width: 60%;
+    margin: 0 auto;
+    background-color: darkslategray;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    border: none;
+    border-radius: 9px;
+}
+.product-form *:focus{
+     outline: none; 
+    box-shadow: 0 0 0 0.8rem aquamarine;
+}
+
+.product-form label{
+display: block;
+font-size: 1.2rem;
+font-weight: 500;
+margin:1rem;
+color:azure;
+text-align: center;
+}
+
+ .product-form input,
+.product-form select
+{
+    /* color:azure; */
+width: 100%;
+padding: 0.8rem;
+font-size: 1rem;
+border: none;
+border-radius: 9px;
+}
+.product-form textarea{
+
+ width: 100%;   
+ padding:0.8rem;
+ font-size:1rem;
+ border: none;
+ border-radius: 9px;
+}
+.product-form button{
+    margin:1.1rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem;
+    /* color:azure; */
+    /* background-color: ; */
+/* background-color: chartreuse; */
+} 
+.product-form button:link{
+    width: auto;
+   cursor: pointer;
+   margin: 100px auto;
+  }
+  /* .product-form button:visited{
+       color: pink; 
+  } */
+  .product-form button:hover{
+    /* color:rgb(24, 198, 140); */
+    background-color: rgb(6, 232, 156);
+    outline: none; 
+    box-shadow: 0 0 0 0.8rem aquamarine;
+    color: azure;
+  }
+  .product-form button:active{
+     /* color: chartreuse; */
+     background-color: rgb(6, 232, 156);
+  }

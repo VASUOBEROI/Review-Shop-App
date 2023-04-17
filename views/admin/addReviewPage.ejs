@@ -4,24 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/forms.css">
     <title><%=pageTitle%></title>
+   
 </head>
 <body>
-       
-    <form action="/admin/reviews" method="post">
-
+    <header class="nav-header">
         
-            <label for="productTitle"> Product Title:</label>
-            <input type="text" id="productTitle" name="productTitle"><br><br>
-            <label for="review">Review:</label>
-            <textarea id="productReview" name="productReview"></textarea>
-            <label for="url">Url:</label>
-            <input type="url" id="productUrl" name="productUrl">
-            <!-- <input type="text" id="lname" name="lname"><br><br> -->
-            <input type="submit" value="Add Review">
+        
+        <h1 class="nav-heading"><%=pageHeading%></h1>
+       
+        <nav class="nav-header-nav">
+            
+            <ul class="nav-list"> 
+                <li class="nav-list-item"><a href="/shop">Shop</a></li>
+                <li class="nav-list-item"><a href="/admin/add-review">Add-Review</a></li>
+                <li class="nav-list-item"><a href="/admin/reviews">Reviews</a></li>
+                <li class="nav-list-item"><a href="/wallet">My-Wallet</a></li>
+                <li class="nav-list-item"><a href="#">Orders</a></li>
+            </ul>
+
+
+        </nav>
+
+
+    </header>
+    
+   
+    <form action="/admin/reviews" method="post" class="product-form">
+
+            <div>   
+            <label for="productTitle">Product Title</label>
+            <input type="text" id="productTitle" name="productTitle" placeholder="Oppo-Enco-Air2Pro">
+             </div>
+
+            <div>
+             <label for="productPrice">Price (in Rs)</label>
+             <input type="number" id="productPrice" name="productPrice" placeholder="100"/>
+            </div>
+               
+             <div>
+             <label for="productRating">Rating</label>
+              <select id="productRating" name="productRating">
+                   <option value="">Choose Appropriate Rating</option>
+                 <option value="1">1</option>
+                 <option value="2">2</option>
+                 <option value="3">3</option>
+                 <option value="4">4</option>
+                 <option value="5">5</option>
+              </select>
+            </div> 
+              
+            <div>
+             <label for="productReview">Review</label>
+            <textarea id="productReview" name="productReview" rows="5" cols="30"></textarea>
+            </div>
+            
+            <button>Add Review</button>
           
+           
     </form>
 
-    <h1><%=pageHeading%></h1>
+
+
+
+
+
 </body>
 </html>
