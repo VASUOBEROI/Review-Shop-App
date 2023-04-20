@@ -10,6 +10,8 @@ router.get('/',adminController.getLandingPage);
 router.get('/add-review',adminController.getAddReview);
 // GET  : /admin/reviews
 router.get('/reviews',adminController.getReviews);
+// GET  : /admin/reviews/productId
+router.get('/reviews/:productId',adminController.getReview);
 // POST : /admin/reviews
 router.post('/reviews',adminController.postReviews);
 

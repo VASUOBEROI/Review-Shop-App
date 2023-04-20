@@ -24,6 +24,14 @@ const getReviews=(req,res,next)=>{
 
     
 }
+const getReview=(req,res,next)=>{
+   // extracting dynamic parameter of url.
+   const productId=req.params.productId;
+   Product.fetchOne(productId,(productId,product)=>{
+    // console.log(productId);
+    res.render("admin/showReview.ejs",{pageTitle:"Show-Review",product:product});
+   });
+}
 
 const postReviews=(req,res,next)=>{
 // res.render('',{});
@@ -39,5 +47,6 @@ module.exports={
     getLandingPage:getLandingPage,
     getAddReview:getAddReview,
     getReviews:getReviews,
+    getReview:getReview,
     postReviews:postReviews
 }
