@@ -4,12 +4,12 @@
     <h1 class="nav-heading"><%=pageHeading%></h1>
    
     <nav class="nav-header-nav">
-        
+        =
         <ul class="nav-list"> 
-            <li class="nav-list-item"><a href="/shop">Shop</a></li>
-            <li class="nav-list-item"><a href="/admin/add-review">Add-Review</a></li>
-            <li class="nav-list-item"><a href="/admin/reviews">Reviews</a></li>
-            <li class="nav-list-item"><a href="/wallet">My-Wallet</a></li>
+            <li class="nav-list-item"><a href="/shop" class="<%=path==='/shop'? 'active':''%>">Shop</a></li>
+            <li class="nav-list-item"><a href="/admin/add-review" class="<%=path==='/admin/add-review'? 'active':''%>">Add-Review</a></li>
+            <li class="nav-list-item"><a href="/admin/reviews" class="<%=path==='/admin/reviews'? 'active':''%>">Reviews</a></li>
+            <li class="nav-list-item"><a href="/wallet" class="<%=path==='/wallet'? 'active':''%>">My-Wallet</a></li>
             <li class="nav-list-item"><a href="#">Orders</a></li>
         </ul>
 

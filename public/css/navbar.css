@@ -73,6 +73,9 @@ font-size: 17px;
     font-weight: bold;
 }
 
-.nav-list-item a:active {
-    color: crimson;
+.nav-list-item a:active,
+.nav-list-item a.active
+{
+    color:aquamarine;
 } 
+

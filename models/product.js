@@ -8,12 +8,13 @@ const storePath=path.join(rootDir,'data','products.json');
 
 
 module.exports=class Product{
-    constructor(productTitle,productPrice,productRating,productReview)
+    constructor(productTitle,productPrice,productRating,productReview,productImgUrl)
     {
         this.productTitle=productTitle;
         this.productPrice=productPrice;
         this.productRating=productRating;
         this.productReview=productReview;
+        this.productImgUrl=productImgUrl;
         // this.price=price;
     }
     save()
