@@ -47,7 +47,7 @@ border-radius: 9px;
  border: none;
  border-radius: 9px;
 }
-.product-form button{
+ button{
     margin:1.1rem;
     font-size: 0.8rem;
     border: none;
@@ -60,7 +60,7 @@ border-radius: 9px;
     /* background-color: ; */
 /* background-color: chartreuse; */
 } 
-.product-form button:link{
+ button:link{
     width: auto;
    cursor: pointer;
    margin: 100px auto;
@@ -68,14 +68,14 @@ border-radius: 9px;
   /* .product-form button:visited{
        color: pink; 
   } */
-  .product-form button:hover{
+   button:hover{
     /* color:rgb(24, 198, 140); */
     background-color: rgb(6, 232, 156);
     outline: none; 
     box-shadow: 0 0 0 0.8rem aquamarine;
     color: azure;
   }
-  .product-form button:active{
+   button:active{
      /* color: chartreuse; */
      background-color: rgb(6, 232, 156);
   }

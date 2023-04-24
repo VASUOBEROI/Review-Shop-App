@@ -1,6 +1,13 @@
+const Product=require('../models/product');
+
 
 const getShopPage=(req,res,next)=>{
-     res.render('shop/shop.ejs',{pageTitle:"Shop",pageHeading:"Review Shop App",path:"/shop"});
+
+
+     Product.fetchAll((reviews)=>{
+        res.render('shop/shop.ejs',{pageTitle:"Shop",pageHeading:"Review Shop App",
+        products:reviews,path:'/shop'});
+    })
 }
 
 

@@ -22,7 +22,7 @@ const getReviews=(req,res,next)=>{
     
     Product.fetchAll((reviews)=>{
         res.render('admin/showReviews.ejs',{pageTitle:"ShowReviews",pageHeading:"Review Shop App",
-        reviewsArray:reviews,path:'/admin/reviews'});
+        products:reviews,path:'/admin/reviews'});
     })
 
     

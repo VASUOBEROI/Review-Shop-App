@@ -5,11 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/cards.css">
+    <link rel="stylesheet" href="/css/forms.css">
     <title><%=pageTitle%></title>
 </head>
 <body>
     <%-include('../includes/navbar.ejs')%>
-
+    <!-- Display Items : 
     
+    productImgUrl    
+    productTitle;
+    productPrice;
+    productRating;
+    productReview;
+    ; -->
+    
+    <div class="reviews-grid">
+
+       <% for(let prod of products) { %>                %>
+        <div class="card">
+           
+        <img src="<%=prod.productImgUrl%>" alt="Product Image" class="card-image"/>
+         
+        <h2 class="card-title"><%=prod.productTitle%></h2>
+
+
+        <div class="card-price"> 
+            <ion-icon name="logo-usd"class="card-logo"></ion-icon>
+            <p class="card-price-amount"><%=prod.productPrice%></p>
+        </div>
+
+         <div class="card-rating">
+            <% for(var i=1;i<=prod.productRating;i++) {%>
+          <ion-icon name="star-outline" class="card-logo"></ion-icon>
+            <% } %>
+         </div>
+          
+         <div class="card-review"> 
+            <%=prod.productReview%>
+         </div>
+         
+         <div class="card-buttons"> 
+           
+            <button>Add to Cart</button>
+             <button>More Details</button>
+         </div>
+
+         </div>   
+     
+        <%  } %>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
