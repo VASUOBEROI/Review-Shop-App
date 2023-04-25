@@ -24,7 +24,6 @@
 
        <% for(let prod of products) { %>                %>
         <div class="card">
-           
         <img src="<%=prod.productImgUrl%>" alt="Product Image" class="card-image"/>
          
         <h2 class="card-title"><%=prod.productTitle%></h2>
@@ -35,20 +34,43 @@
             <p class="card-price-amount"><%=prod.productPrice%></p>
         </div>
 
-         <div class="card-rating">
-            <% for(var i=1;i<=prod.productRating;i++) {%>
-          <ion-icon name="star-outline" class="card-logo"></ion-icon>
+        <div class="card-rating">
+            <% for(var i=1;i<=5;i++) {%>
+
+               <% if(i<=prod.productRating) {%>
+          <ion-icon name="star-outline" class="card-logo color-icon"></ion-icon>
+             <% } %>
+                 
+             <% if(i>prod.productRating) {%>
+          
+                <ion-icon name="star-outline" class="card-logo"></ion-icon>
+            <%  }  %>
+ 
+
             <% } %>
          </div>
           
          <div class="card-review"> 
-            <%=prod.productReview%>
+                    <% if(prod.productRating>=4) {%>
+                        <p>Great Product ! Go Buy It</p>
+                        <% } %>
+
+                        <% if(prod.productRating==3) {%>
+                            <p>Nice Product ! You can consider </p>
+                            <% } %>
+                        
+                            <% if(prod.productRating<3) {%>
+                                <p>    Bad Product ! Rethink Before Buying </p>
+                                <% } %>
          </div>
-         
-         <div class="card-buttons"> 
-           
-            <button>Add to Cart</button>
-             <button>More Details</button>
+             
+         <div class="card-buttons">
+            <form action="">
+                <button>Add to Cart</button>
+            </form>
+            <form action="/shop/<%=prod.productId%>">
+                <button>More Details</button>
+            </form>
          </div>
 
          </div>   

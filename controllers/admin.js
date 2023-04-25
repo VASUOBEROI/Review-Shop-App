@@ -32,7 +32,7 @@ const getReview=(req,res,next)=>{
    const productId=req.params.productId;
    Product.fetchOne(productId,(productId,product)=>{
     // console.log(productId);
-    res.render("admin/showReview.ejs",{pageTitle:"Show-Review",product:product});
+    res.render("admin/showReview.ejs",{pageTitle:"Show-Review",pageHeading:"Review Shop App",product:product,path:'/admin/reviews'});
    });
 }
 

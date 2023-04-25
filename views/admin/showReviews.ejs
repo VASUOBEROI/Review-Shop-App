@@ -36,19 +36,45 @@
         </div>
 
          <div class="card-rating">
-            <% for(var i=1;i<=prod.productRating;i++) {%>
-          <ion-icon name="star-outline" class="card-logo"></ion-icon>
+            <% for(var i=1;i<=5;i++) {%>
+
+               <% if(i<=prod.productRating) {%>
+          <ion-icon name="star-outline" class="card-logo color-icon"></ion-icon>
+             <% } %>
+                 
+             <% if(i>prod.productRating) {%>
+          
+                <ion-icon name="star-outline" class="card-logo"></ion-icon>
+            <%  }  %>
+ 
+
             <% } %>
          </div>
           
          <div class="card-review"> 
-            <%=prod.productReview%>
+                    <% if(prod.productRating>=4) {%>
+                        <p>Great Product ! Go Buy It</p>
+                        <% } %>
+
+                        <% if(prod.productRating==3) {%>
+                            <p>Nice Product ! You can consider </p>
+                            <% } %>
+                        
+                            <% if(prod.productRating<3) {%>
+                                <p>    Bad Product ! Rethink Before Buying </p>
+                                <% } %>
          </div>
          
-         <div class="card-buttons"> 
-            <button>Edit Review</button>
-            <button>Delete Review</button>
-             <button>More Details</button>
+         <div class="card-buttons">
+            <form action="">
+                <button>Edit Review</button>
+            </form> 
+            <form action="">
+                <button>Delete Review</button>
+            </form>
+            <form action="/admin/reviews/<%=prod.productId%>">
+                <button>More Details</button>
+            </form>
          </div>
 
          </div>   

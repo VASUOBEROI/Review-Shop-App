@@ -9,6 +9,19 @@
   align-items:stretch;
 }
 
+.review-grid{
+    display: grid;
+    width: 70%;
+     margin : 0 auto;
+     grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+     gap:18px;
+/* justify-content: center; */
+background-color: darkslategray;
+border-radius: 9px;
+box-shadow: 0 18px 36px 0 rgba(127, 255, 212, 0.388)
+}
+
+
 .card{
 width: 100%;
 display: flex;
@@ -21,15 +34,25 @@ background-color:darkslategray;
 border-radius: 9px;
 box-shadow: 0 18px 36px 0 rgba(127, 255, 212, 0.388)
 }
-
+.small-card{
+    justify-content: space-around;
+    background-color: inherit;
+    box-shadow: none;
+}
 .card-image{
  width: 100%;
  /* height: auto; */
+ height:60%;
  border-radius: 9px;
-
 }
+.big-card-image{
+    width: 100%;
+    border-radius: 9px;
+}
+
 .card-title{
     /* padding:10px; */
+    text-align: center;
     color:aquamarine;
     font-weight: 500;
     text-transform: uppercase;
@@ -52,6 +75,11 @@ color:azure;
 height:24px;
 width:24px;
 }
+
+.color-icon{
+    color:aquamarine;
+}
+
 .card-price-amount{
     color:azure;
     font-size: 20px;
@@ -60,23 +88,17 @@ width:24px;
 .card-review{
     color:azure;
     font-size:16px;
+    text-align: center;
+    font-style: italic;
 }
-
 .card-buttons{
 display: flex;
 align-items: center;
+justify-content: center;
+width:100%;
 }
 .card-buttons button{
-    font-size: 0.8rem;
-    border: none;
-    border-radius: 9px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    padding: 0.6rem 0.6rem;
     
-    /* background-color: ; */
-/* background-color: chartreuse; */
+    padding: 0.4rem 0.4rem;
 } 
 
-  

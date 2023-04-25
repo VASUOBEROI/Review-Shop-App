@@ -9,9 +9,16 @@ const getShopPage=(req,res,next)=>{
         products:reviews,path:'/shop'});
     })
 }
-
+const getShopProduct=(req,res,next)=>{
+    const productId=req.params.productId;
+   Product.fetchOne(productId,(productId,product)=>{
+    // console.log(productId);
+    res.render("shop/product.ejs",{pageTitle:"Show-Review",pageHeading:"Review Shop App",product:product,path:'/shop'});
+   });
+}
 
 
 module.exports={
-    getShopPage:getShopPage
+    getShopPage:getShopPage,
+    getShopProduct:getShopProduct
 }
