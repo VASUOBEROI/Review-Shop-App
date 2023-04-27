@@ -48,12 +48,13 @@
         
          
          <div class="card-buttons">
-            <form action="">
+            <form action="/shop/cart" method="POST">
+                <input type="hidden" name="productId" value="<%=product.productId%>">
                 <button>Add to Cart</button>
             </form>
-            <form action="/admin/reviews/<%=product.productId%>">
+            <!-- <form action="/shop/<%=product.productId%>">
                 <button>More Details</button>
-            </form>
+            </form> -->
          </div>
 
 
