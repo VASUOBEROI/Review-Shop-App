@@ -18,6 +18,19 @@ const getAddReview=(req,res,next)=>{
     });
 }
 
+const getEditReview=(req,res,next)=>{
+    const productId=req.params.productId;
+    Product.fetchOne(productId,(productId,product)=>{
+        res.render('admin/editReview.ejs',{
+          pageTitle:"Admin Edit Review",
+          pageHeading:"Review Shop App",
+          path:"/admin/add-review",
+          product:product  
+        })
+    })
+}
+
+
 const getReviews=(req,res,next)=>{
     
     Product.fetchAll((reviews)=>{
@@ -36,20 +49,28 @@ const getReview=(req,res,next)=>{
    });
 }
 
-const postReviews=(req,res,next)=>{
+// Adding Product for the first time.
+const postAddReview=(req,res,next)=>{
 // res.render('',{});
 console.log(req.body);
-const newProduct=new Product(req.body.productTitle,req.body.productPrice,req.body.productRating,req.body.productReview,req.body.productImgUrl);
+const newProduct=new Product(null,req.body.productTitle,req.body.productPrice,req.body.productRating,req.body.productReview,req.body.productImgUrl);
 newProduct.save();
 res.redirect('/admin/reviews');
 }
-
+// Edit Older Product.
+const postEditReview=(req,res,next)=>{
+const product=new Product(req.body.productId,req.body.productTitle,req.body.productPrice,req.body.productRating,req.body.productReview,req.body.productImgUrl);
+product.save();
+ res.redirect('/admin/reviews');
+}
 
 
 module.exports={
     getLandingPage:getLandingPage,
     getAddReview:getAddReview,
+    getEditReview:getEditReview,
     getReviews:getReviews,
     getReview:getReview,
-    postReviews:postReviews
+    postAddReview:postAddReview,
+    postEditReview:postEditReview
 }

@@ -8,8 +8,9 @@ const storePath=path.join(rootDir,'data','products.json');
 
 
 module.exports=class Product{
-    constructor(productTitle,productPrice,productRating,productReview,productImgUrl)
+    constructor(productId,productTitle,productPrice,productRating,productReview,productImgUrl)
     {
+        this.productId=productId;
         this.productTitle=productTitle;
         this.productPrice=productPrice;
         this.productRating=productRating;
@@ -18,19 +19,34 @@ module.exports=class Product{
         // this.price=price;
     }
     save()
-    {
-        this.productId=Math.random();
-         fs.readFile(storePath,(err,fileContent)=>{
-            let products=[];
-            if(!err)
-            {
-                products=JSON.parse(fileContent);
-            }
+    {     
+       fs.readFile(storePath,(err,fileContent)=>{
+        let products=[];
+        if(!err)
+        {
+             products=JSON.parse(fileContent);
+        }
+
+        if(this.productId)
+        {
+            let existingProductIndex=products.findIndex(prod=>prod.productId==this.productId);
+            let updatedProducts=[...products];
+            updatedProducts[existingProductIndex]=this;
+        fs.writeFile(storePath,JSON.stringify(updatedProducts),err=>{
+            console.log(err);
+        })
+        }else
+        {
+            this.productId=Math.random();
             products.push(this);
-            fs.writeFile(storePath,JSON.stringify(products),(err)=>{
-                console.log(err);
-            })
-         })
+           fs.writeFile(storePath,JSON.stringify(products),err=>{
+            console.log(err);
+           })
+        }  
+
+
+       })
+         
     }
 
     static fetchAll(cb)
