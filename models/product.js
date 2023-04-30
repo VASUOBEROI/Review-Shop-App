@@ -4,7 +4,7 @@ const fs=require('fs');
 const rootDir=require('../utils/path');
 
 const storePath=path.join(rootDir,'data','products.json');
-
+const Cart=require('./cart');
 
 
 module.exports=class Product{
@@ -47,6 +47,30 @@ module.exports=class Product{
 
        })
          
+    }
+
+    static delete(productId)
+    {
+        fs.readFile(storePath,(err,fileContent)=>{
+            let products=[];
+            if(!err)
+            {
+                 products=JSON.parse(fileContent);
+            }
+            // Just to use price.
+            let productToDelete=products.find(prod=>prod.productId===productId);
+            // console.log(productToDelete);
+            let productPrice=productToDelete.productPrice;
+            let updatedProducts=[...products];
+            updatedProducts=updatedProducts.filter(prod=>prod.productId!==productId);
+            fs.writeFile(storePath,JSON.stringify(updatedProducts),err=>{
+                if(!err)
+                {
+                     // delete product from cart also.
+                     Cart.deleteProduct(productId,productPrice);
+                }
+            })
+        })
     }
 
     static fetchAll(cb)

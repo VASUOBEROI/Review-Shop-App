@@ -40,5 +40,32 @@ module.exports=class Cart{
      })
 
  }
+ static deleteProduct(productId,productPrice)
+ {
+    // Reading the Cart.
+    fs.readFile(storePath,(err,fileContent)=>{
+        let cart={products:[],totalPrice:0};
+        if(!err)
+        {
+            cart=JSON.parse(fileContent);
+        }
+        // First Check if the product is present in Cart or not.
+        const product=cart.products.find(prod=>prod.productId===productId);
+        if(!product)
+        {
+             return;
+        }
+       let updatedCart={...cart};
+       updatedCart.products=updatedCart.products.filter(prod=>prod.productId!==productId);
+       updatedCart.totalPrice=updatedCart.totalPrice-product.Qty*productPrice;
+
+      // Again writing the Cart Back to File.
+      fs.writeFile(storePath,JSON.stringify(updatedCart),err=>{
+        console.log(err);
+      })
+
+    })
+
+ }
 
 }

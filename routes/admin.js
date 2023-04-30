@@ -18,7 +18,8 @@ router.get('/reviews/:productId',adminController.getReview);
 router.post('/add-review',adminController.postAddReview);
 // POST : /admin/edit-review
 router.post('/edit-review',adminController.postEditReview);
-
+// POST : /admin/delete-review
+router.post('/delete-review',adminController.postDeleteReview);
 
 module.exports={
     Router:router

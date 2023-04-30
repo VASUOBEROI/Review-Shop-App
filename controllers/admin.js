@@ -64,6 +64,15 @@ product.save();
  res.redirect('/admin/reviews');
 }
 
+// Delete Review.
+
+const postDeleteReview=(req,res,next)=>{
+const productId=req.body.productId;
+Product.delete(productId);
+res.redirect('/admin/reviews');
+}
+
+
 
 module.exports={
     getLandingPage:getLandingPage,
@@ -72,5 +81,6 @@ module.exports={
     getReviews:getReviews,
     getReview:getReview,
     postAddReview:postAddReview,
-    postEditReview:postEditReview
+    postEditReview:postEditReview,
+    postDeleteReview:postDeleteReview
 }

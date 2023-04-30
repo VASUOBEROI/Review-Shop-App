@@ -51,7 +51,8 @@
             <form action="/admin/edit-review/<%=product.productId%>">
                 <button>Edit Review</button>
             </form> 
-            <form action="">
+            <form action="/admin/delete-review" method="post">
+                <input type="hidden" name="productId" value="<%=product.productId%>">
                 <button>Delete Review</button>
             </form>
             <form action="/admin/reviews/<%=product.productId%>">
