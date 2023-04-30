@@ -5,6 +5,8 @@ const shopController=require('../controllers/shop');
 
 // GET : /shop
 router.get('/',shopController.getShopPage);
+// GET : /shop/cart
+router.get('/cart',shopController.getCart);
 // GET : /shop/productId
 router.get('/:productId',shopController.getShopProduct);
 // POST : /shop/cart

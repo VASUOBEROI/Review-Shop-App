@@ -4,6 +4,10 @@ const rootDir=require('../utils/path');
 
 const storePath=path.join(rootDir,'data','cart.json');
 
+// Cart functionality:
+// Add Product to Cart.
+// Delete Product to Cart.
+
 module.exports=class Cart{
  static addProduct(productId,productPrice)
  {

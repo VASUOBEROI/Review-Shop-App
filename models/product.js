@@ -5,7 +5,10 @@ const rootDir=require('../utils/path');
 
 const storePath=path.join(rootDir,'data','products.json');
 const Cart=require('./cart');
-
+// Funtionality :
+// Add Product/Update Product.
+// Fetch Products/Fetch Single Product.
+// Delete Product.
 
 module.exports=class Product{
     constructor(productId,productTitle,productPrice,productRating,productReview,productImgUrl)
@@ -29,6 +32,7 @@ module.exports=class Product{
 
         if(this.productId)
         {
+            // Product Already exists,Meaning We are Updating the Product Review.
             let existingProductIndex=products.findIndex(prod=>prod.productId==this.productId);
             let updatedProducts=[...products];
             updatedProducts[existingProductIndex]=this;

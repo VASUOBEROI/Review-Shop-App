@@ -17,6 +17,15 @@ const getShopProduct=(req,res,next)=>{
     res.render("shop/product.ejs",{pageTitle:"Show-Review",pageHeading:"Review Shop App",product:product,path:'/shop'});
    });
 }
+const getCart=(req,res,next)=>{
+    res.render('shop/cart.ejs',
+    {pageTitle:'Shop-Cart',
+    pageHeading:'Review Shop App',
+    path:'/cart'
+ });
+}
+
+
 const postCart=(req,res,next)=>{
 //This will be executed for post requests. So data : productId will come through body only rather than url(route params)
 const productId=req.body.productId;
@@ -31,5 +40,6 @@ res.redirect('/shop');
 module.exports={
     getShopPage:getShopPage,
     getShopProduct:getShopProduct,
+    getCart:getCart,
     postCart:postCart
 }
