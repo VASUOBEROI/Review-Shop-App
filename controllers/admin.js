@@ -52,7 +52,7 @@ const getReview=(req,res,next)=>{
 // Adding Product for the first time.
 const postAddReview=(req,res,next)=>{
 // res.render('',{});
-console.log(req.body);
+// console.log(req.body);
 const newProduct=new Product(null,req.body.productTitle,req.body.productPrice,req.body.productRating,req.body.productReview,req.body.productImgUrl);
 newProduct.save();
 res.redirect('/admin/reviews');

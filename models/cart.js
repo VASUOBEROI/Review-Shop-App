@@ -21,7 +21,7 @@ module.exports=class Cart{
         {
             cart=JSON.parse(fileContent);
         }
-        let existingProductIndex=cart.products.findIndex(prod=>prod.productId===productId);
+        let existingProductIndex=cart.products.findIndex(prod=>prod.productId==productId);
         let existingProduct=cart.products[existingProductIndex];
         let updatedProduct={Qty:0,productId:0};
          if(existingProduct)
@@ -54,13 +54,13 @@ module.exports=class Cart{
             cart=JSON.parse(fileContent);
         }
         // First Check if the product is present in Cart or not.
-        const product=cart.products.find(prod=>prod.productId===productId);
+        const product=cart.products.find(prod=>prod.productId==productId);
         if(!product)
         {
              return;
         }
        let updatedCart={...cart};
-       updatedCart.products=updatedCart.products.filter(prod=>prod.productId!==productId);
+       updatedCart.products=updatedCart.products.filter(prod=>prod.productId!=productId);
        updatedCart.totalPrice=updatedCart.totalPrice-product.Qty*productPrice;
 
       // Again writing the Cart Back to File.

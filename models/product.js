@@ -42,8 +42,10 @@ module.exports=class Product{
         }else
         {
             this.productId=Math.random();
-            products.push(this);
-           fs.writeFile(storePath,JSON.stringify(products),err=>{
+            // products.push(this);
+            let updatedProducts=[...products];
+            updatedProducts.push(this);
+           fs.writeFile(storePath,JSON.stringify(updatedProducts),err=>{
             console.log(err);
            })
         }  
@@ -61,12 +63,21 @@ module.exports=class Product{
             {
                  products=JSON.parse(fileContent);
             }
+            // console.log("Inside product Model");
+            // console.log(products);
+            // console.log("Product Id to Delete Inside Model ",productId);
             // Just to use price.
-            let productToDelete=products.find(prod=>prod.productId===productId);
+            let productToDelete=products.find(prod=>prod.productId==productId);
+            //  console.log("Product to Delete",productToDelete);
+            if(!productToDelete)
+            {
+                console.log("Product Not Found");
+                 return;
+            }
             // console.log(productToDelete);
             let productPrice=productToDelete.productPrice;
             let updatedProducts=[...products];
-            updatedProducts=updatedProducts.filter(prod=>prod.productId!==productId);
+            updatedProducts=updatedProducts.filter(prod=>prod.productId!=productId);
             fs.writeFile(storePath,JSON.stringify(updatedProducts),err=>{
                 if(!err)
                 {
