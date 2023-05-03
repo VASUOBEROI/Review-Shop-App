@@ -10,14 +10,39 @@
     border: none;
     border-radius: 9px;
 }
+.transaction-form{
+    width: 90%;
+    margin: 0 auto;
+    background-color: darkslategray;
+    display: flex;
+    align-items: center;
+    gap:1%;
+    flex-wrap:initial;
+    justify-content: center;
+    border: none;
+    border-radius: 9px;
+}
+.transaction-form-div:first-child
+{
+    margin-left: 0.6rem;
+}
+
 .product-form-div{
     width: 80%;
-
 }
+.transaction-form-div{
+    /* width: 100%; */
+    margin:1.2rem;
+}
+
 
 .product-form *:focus{
      outline: none; 
     box-shadow: 0 0 0 0.8rem aquamarine;
+}
+.transaction-form *:focus{
+    outline: none;
+    box-shadow: 0 0 0 0.6rem aquamarine;
 }
 
 .product-form label{
@@ -29,6 +54,16 @@ color:azure;
 text-align: center;
 }
 
+.transaction-form label{
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin:0.6rem;
+    text-align: center;
+    color: azure;
+}
+
+
  .product-form input,
 .product-form select
 {
@@ -39,6 +74,23 @@ font-size: 1rem;
 border: none;
 border-radius: 9px;
 }
+
+.transaction-form input,
+.transaction-form select
+{
+    /* color:azure; */
+width: 100%;
+padding: 0.4rem;
+font-size: 0.9rem;
+border: none;
+border-radius: 9px;
+}
+
+
+
+
+
+
 .product-form textarea{
 
  width: 100%;   
@@ -47,6 +99,17 @@ border-radius: 9px;
  border: none;
  border-radius: 9px;
 }
+
+.transaction-form textarea{
+    width: 100%;
+    padding:0.4rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 9px;
+}
+
+
+
  button,
  .button
  {
@@ -62,6 +125,14 @@ border-radius: 9px;
     /* background-color: ; */
 /* background-color: chartreuse; */
 } 
+.transaction-form button{
+ padding:0.4rem 0.4rem;
+ margin:0.6rem;
+ margin-left: 0;
+ /* font-size: 1.1rem; */
+}
+
+
  button:link,
  .button:link
  {

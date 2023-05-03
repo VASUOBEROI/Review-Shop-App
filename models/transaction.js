@@ -2,6 +2,7 @@ const path=require('path');
 const fs=require('fs');
 const rootDir=require('../utils/path');
 const storePath=path.join(rootDir,'data','transactions.json');
+const Wallet=require('./wallet');
 
 module.exports=class Transaction{
 constructor(transactionId,transactionDate,transactionType,transactionMode,transactionAmount,transactionDescription)
@@ -38,6 +39,13 @@ save()
         transactions.push(this);
         fs.writeFile(storePath,JSON.stringify(transactions),err=>{
             console.log(err);
+            if(!err)
+            {
+                // Adding new Transaction To Wallet as well.
+                // For transaction Update we dont need to update in Wallet.
+                // Because wallet is only storing transactionsiD.
+                Wallet.addTransaction(this.transactionId,this.transactionAmount,this.transactionType);
+            }
         })
          
     }
@@ -52,12 +60,13 @@ fs.readFile(storePath,(err,fileContent)=>{
     {
          transactions=JSON.parse(fileContent);
     }
+    let transaction=transactions.find(trans=>trans.transactionId==transactionId);
     transactions=transactions.filter(trans=>trans.transactionId!=transactionId);
     fs.writeFile(storePath,JSON.stringify(transactions),err=>{
         if(!err)
         {
              // Delete the transaction from wallet also.
-             // To be Completed.
+             Wallet.deleteTransaction(transactionId,transaction.transactionAmount,transaction.transactionType);
         }
     })
 })

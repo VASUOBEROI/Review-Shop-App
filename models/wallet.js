@@ -23,8 +23,8 @@ module.exports=class Wallet{
           }else
           {
            transaction.transactionId=transactionId;
-           updatedWallet.transactions=[...updatedCart.transactions,transaction];
-           if(transactionType=="credit")
+           updatedWallet.transactions=[...updatedWallet.transactions,transaction];
+           if(transactionType=="Credit")
            {
             updatedWallet.balance=updatedWallet.balance+ +amount;    
            }else
