@@ -26,20 +26,27 @@
 
 
         <div class="card-price"> 
-            <ion-icon name="logo-usd"class="card-logo"></ion-icon>
+            <svg class="card-logo">
+                <use xlink:href="/css/sprite.svg#icon-inr"></use>
+            </svg>
             <p class="card-price-amount"><%=product.productPrice%></p>
         </div>
 
-         <div class="card-rating">
+        <div class="card-rating">
             <% for(var i=1;i<=5;i++) {%>
 
                <% if(i<=product.productRating) {%>
-          <ion-icon name="star-outline" class="card-logo color-icon"></ion-icon>
+            <svg class="card-logo color-icon">
+                <use xlink:href="/css/sprite.svg#icon-star-empty"></use>
+            </svg>
+          <!-- <ion-icon name="star-outline" class="card-logo color-icon"></ion-icon> -->
              <% } %>
                  
              <% if(i>product.productRating) {%>
-          
-                <ion-icon name="star-outline" class="card-logo"></ion-icon>
+                <!-- <svg class="card-logo">
+                    <use xlink:href="/css/sprite.svg#icon-star-empty"></use>
+                </svg> -->
+                <!-- <ion-icon name="star-outline" class="card-logo"></ion-icon> -->
             <%  }  %>
  
 
@@ -67,7 +74,7 @@
     </div>
        
        
-    <%-include('../includes/ion-icons-script.ejs')%>
+  
 
 </body>
 </html>
