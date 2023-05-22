@@ -11,6 +11,7 @@ const walletRouter=require('./routes/wallet');
 const shopRouter=require('./routes/shop');
 const errorController=require('./controllers/error');
 const shopController=require('./controllers/shop');
+const sequelize=require('./utils/database');
 
 
 const app=express();
@@ -35,5 +36,11 @@ app.get('/',shopController.getShopPage);
 // Routes: wrongRoutes doesnot exists.
 app.use('/',errorController.get404Page);
 
+//Database Connection
+sequelize.sync().then(result=>
+    {
+        console.log(result)
+        app.listen(3000);
+    }
+).catch(err=>{console.log(err)});
 
-app.listen(3000);
